@@ -1,0 +1,64 @@
+{
+  "_note": "Master lists for the PoC bake-off. Idle, rework and rejection codes are copied from the back of Titan's real job card. Employees, machines, components, shifts and the 10202 production code are DEMO ASSUMPTIONS for synthetic data, to be replaced by Titan's real lists.",
+  "employees": ["279842", "279915", "280133", "280207", "280356", "280419", "280588", "280671"],
+  "machines": {
+    "604020.08": "Press",
+    "604020.11": "Press",
+    "604021.03": "CNC",
+    "604021.05": "CNC"
+  },
+  "components": ["6147", "1163", "2250", "3341"],
+  "shifts": {
+    "A": {"start": "6.00", "end": "2.30", "break_minutes": 30, "paid_hours": 8.0},
+    "B": {"start": "2.30", "end": "11.00", "break_minutes": 30, "paid_hours": 8.0}
+  },
+  "production_codes": {
+    "10202": "Production (assumed; not on the code sheet)"
+  },
+  "production_code_prefixes": {
+    "S": "Setup / trial run (assumed; meaning unknown)"
+  },
+  "idle_codes": {
+    "10801": "Preventive Maintenance",
+    "10803": "Electrical Machine breakdown",
+    "10804": "Mechanical Machine breakdown",
+    "10806": "No Load",
+    "10808": "No Utilities (Power, Compressed Air, Water, Chilled water & Air duct)",
+    "10810": "No Tool",
+    "10811": "Tool Reconditioning",
+    "10813": "Absenteeism",
+    "10815": "Training",
+    "10816": "Welfare",
+    "10817": "Machine Modification/Development",
+    "10818": "Tryout Process / Material / Tool",
+    "10819": "Technical Problems (other than the above reasons)",
+    "10825": "TPM Activities carried out by the Operator on the Machine",
+    "10826": "Kanban Full",
+    "10829": "Adjustment to 3rd Shift",
+    "10835": "Shop Service Activity & Furnace, Oiling, Durr",
+    "10836": "Machine Cleaning",
+    "10910": "Annealing",
+    "11600": "Inspection (Shop)"
+  },
+  "rework_codes": {
+    "001": "Black Stains",
+    "002": "Burr",
+    "004": "Dent On Mg Seating/d.slant/impression",
+    "005": "Damages",
+    "006": "Operation Miss",
+    "007": "Insufficient Material Flow",
+    "010": "Peel Off (mg/dst)",
+    "011": "Mixup",
+    "012": "Scoring Mark",
+    "013": "Dial Opening Related Issues"
+  },
+  "rejection_codes": {
+    "001": "DAMAGE",
+    "004": "Tool chipped off",
+    "005": "wrong tool used",
+    "006": "Mis location",
+    "007": "Billet melting",
+    "008": "Crack",
+    "009": "Bottom dent"
+  }
+}

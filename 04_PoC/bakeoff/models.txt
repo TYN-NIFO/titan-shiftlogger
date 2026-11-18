@@ -1,0 +1,25 @@
+# One model spec per line. "ocr>mapper" = OCR model first, then a vision model maps to JSON.
+# Exact Ollama tags (checked on ollama.com, 18 Nov 2026). Comment out what doesn't fit the GPU.
+# GPU memory and speed measured on a shared internal GPU server (H200 slice), num_ctx 8192.
+# Full results of the 18 Nov 2026 run: PROJECT.md section 7.
+
+# --- main reader (recommended): best accuracy, fits a 24 GB GPU at Q4
+qwen3.8:27b-q4_K_M                  # 17 GB GPU, ~15 s/card
+qwen3.8:27b-q8_0                    # 27 GB GPU, ~16 s/card; scored the same as Q4
+
+# --- second reader for the agreement check: very fast mixture-of-experts
+qwen3-vl:30b-a3b-instruct-q4_K_M    # 20 GB GPU, ~4-6 s/card
+qwen3-vl:30b-a3b-instruct-q8_0      # 32 GB GPU
+
+# --- small baseline (16 GB GPU)
+qwen3-vl:8b-instruct-q4_K_M         # 7 GB GPU
+qwen3-vl:8b-instruct-q8_0           # 11 GB GPU
+
+# --- other candidates
+qwen3-vl:32b-instruct-q4_K_M        # 23 GB GPU, ~19-38 s/card
+qwen3-vl:32b-instruct-q8_0          # 36 GB GPU
+qwen3.6:35b-a3b-q4_K_M              # 22 GB GPU (needs think:false, now set in extract.py)
+qwen3.6:35b-a3b-q8_0                # 35 GB GPU
+
+# --- OCR-first pipeline: was WORSE than the mapper alone in run 1 (GLM-OCR misreads misled Qwen)
+glm-ocr:bf16>qwen3.8:27b-q4_K_M     # 3 GB + 17 GB

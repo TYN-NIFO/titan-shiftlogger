@@ -1,0 +1,136 @@
+<mxfile host="app.diagrams.net" scale="1" border="0">
+  <diagram id="tyn-poc-v2" name="Titan Shift Logger - Medium">
+    <mxGraphModel dx="1400" dy="1000" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1250" pageHeight="1060" background="#ffffff" adaptiveColors="none" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <mxCell id="title" value="&lt;b&gt;Titan AI Shift Logger – POC Architecture&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:12px&quot; color=&quot;#475569&quot;&gt;Everything runs on Titan's on-premise server · no cloud APIs&lt;/font&gt;" style="text;html=1;align=left;verticalAlign=middle;fontSize=18;fontColor=#1e293b;" vertex="1" parent="1">
+          <mxGeometry x="20" y="0" width="700" height="45" as="geometry" />
+        </mxCell>
+
+        <mxCell id="bg-1a" value="Phase 1A: Job Card Ingestion (Extraction → Validation → Database)" style="rounded=1;arcSize=4;whiteSpace=wrap;html=1;verticalAlign=top;fontSize=14;fontStyle=1;fillColor=#f8fafc;strokeColor=#cbd5e1;dashed=1;fontColor=#334155;" vertex="1" parent="1">
+          <mxGeometry x="20" y="55" width="1200" height="280" as="geometry" />
+        </mxCell>
+        <mxCell id="bg-1b" value="Phase 1B: Knowledge Base Ingestion (Chunking &amp;amp; Embedding)" style="rounded=1;arcSize=6;whiteSpace=wrap;html=1;verticalAlign=top;fontSize=14;fontStyle=1;fillColor=#f8fafc;strokeColor=#cbd5e1;dashed=1;fontColor=#334155;" vertex="1" parent="1">
+          <mxGeometry x="20" y="350" width="1200" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="bg-2" value="Phase 2: Runtime (Next.js, FastAPI, Text-to-SQL &amp;amp; RAG)" style="rounded=1;arcSize=4;whiteSpace=wrap;html=1;verticalAlign=top;fontSize=14;fontStyle=1;fillColor=#f8fafc;strokeColor=#cbd5e1;dashed=1;fontColor=#334155;" vertex="1" parent="1">
+          <mxGeometry x="20" y="520" width="1200" height="440" as="geometry" />
+        </mxCell>
+
+        <mxCell id="jc" value="&lt;b&gt;Job Card Photo / Scan&lt;/b&gt;&lt;br&gt;phone or scanner" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;" vertex="1" parent="1">
+          <mxGeometry x="40" y="100" width="140" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="extract" value="&lt;b&gt;Data Extraction&lt;/b&gt;&lt;br&gt;&lt;br&gt;&lt;img src=&quot;https://avatars.githubusercontent.com/u/11836753?v=4&quot; height=&quot;16&quot; align=&quot;absmiddle&quot;&gt; Paddle PP-StructureV3&lt;br&gt;&lt;font color=&quot;#64748b&quot;&gt;table &amp;amp; cell layout&lt;/font&gt;&lt;br&gt;&lt;img src=&quot;https://avatars.githubusercontent.com/u/148289657?v=4&quot; height=&quot;16&quot; align=&quot;absmiddle&quot;&gt; Qwen3-VL-8B&lt;br&gt;&lt;font color=&quot;#64748b&quot;&gt;handwriting → JSON&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#818cf8;fontColor=#1e293b;" vertex="1" parent="1">
+          <mxGeometry x="220" y="85" width="200" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="validate" value="&lt;b&gt;Validation Rules&lt;/b&gt;&lt;br&gt;hours · quantities · codes" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#fbbf24;fontColor=#1e293b;" vertex="1" parent="1">
+          <mxGeometry x="460" y="105" width="170" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="review" value="&lt;b&gt;Supervisor Review&lt;/b&gt;&lt;br&gt;unclear cards only" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#f59e0b;fontColor=#1e293b;" vertex="1" parent="1">
+          <mxGeometry x="670" y="105" width="170" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="proddb" value="&lt;img src=&quot;https://upload.wikimedia.org/wikipedia/commons/2/29/Postgresql_elephant.svg&quot; height=&quot;22&quot; align=&quot;absmiddle&quot;&gt;&lt;br&gt;&lt;b&gt;Production DB&lt;/b&gt;&lt;br&gt;PostgreSQL&lt;br&gt;&lt;font color=&quot;#64748b&quot;&gt;shift records&lt;/font&gt;" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#ffffff;strokeColor=#3b82f6;strokeWidth=2;fontColor=#1e293b;" vertex="1" parent="1">
+          <mxGeometry x="900" y="85" width="170" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="master" value="&lt;b&gt;Master Data&lt;/b&gt;&lt;br&gt;codes · machines&lt;br&gt;employees · std rates" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=12;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;" vertex="1" parent="1">
+          <mxGeometry x="460" y="235" width="170" height="85" as="geometry" />
+        </mxCell>
+
+        <mxCell id="e-jc-ex" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#64748b;fontColor=#475569;" edge="1" parent="1" source="jc" target="extract">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-ex-val" value="JSON rows" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#64748b;fontColor=#475569;" edge="1" parent="1" source="extract" target="validate">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-master-val" value="lookup" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#64748b;fontColor=#475569;dashed=1;" edge="1" parent="1" source="master" target="validate">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-val-rev" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#64748b;fontColor=#dc2626;" edge="1" parent="1" source="validate" target="review">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-rev-db" value="Save" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#64748b;fontColor=#475569;" edge="1" parent="1" source="review" target="proddb">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="manuals" value="&lt;b&gt;Machine Manuals&lt;/b&gt;&lt;br&gt;SOPs · repair logs" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;" vertex="1" parent="1">
+          <mxGeometry x="40" y="390" width="140" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="chunking" value="&lt;img src=&quot;https://avatars.githubusercontent.com/u/126723224?v=4&quot; height=&quot;20&quot; align=&quot;absmiddle&quot;&gt; &lt;b&gt;Chunking&lt;/b&gt;&lt;br&gt;(Recursive, Semantic)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#fbbf24;fontColor=#1e293b;" vertex="1" parent="1">
+          <mxGeometry x="220" y="395" width="200" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="embed" value="&lt;b&gt;Open Source Embedding&lt;/b&gt;&lt;br&gt;BGE-m3" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#34d399;fontColor=#1e293b;" vertex="1" parent="1">
+          <mxGeometry x="460" y="395" width="150" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="vectordb" value="&lt;img src=&quot;https://upload.wikimedia.org/wikipedia/commons/2/29/Postgresql_elephant.svg&quot; height=&quot;20&quot; align=&quot;absmiddle&quot;&gt; pgvector&lt;br&gt;&lt;b&gt;Vector Database&lt;/b&gt;" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#ffffff;strokeColor=#f87171;strokeWidth=2;fontColor=#1e293b;" vertex="1" parent="1">
+          <mxGeometry x="625" y="380" width="170" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="e-man-ch" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#64748b;fontColor=#475569;" edge="1" parent="1" source="manuals" target="chunking">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-ch-emb" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#64748b;fontColor=#475569;" edge="1" parent="1" source="chunking" target="embed">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-emb-vdb" value="Store" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#64748b;fontColor=#475569;" edge="1" parent="1" source="embed" target="vectordb">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="frontend" value="&lt;img src=&quot;https://upload.wikimedia.org/wikipedia/commons/8/8e/Nextjs-logo.svg&quot; height=&quot;20&quot; align=&quot;absmiddle&quot;&gt; &amp;nbsp; &lt;img src=&quot;https://upload.wikimedia.org/wikipedia/commons/d/d5/Tailwind_CSS_Logo.svg&quot; height=&quot;20&quot; align=&quot;absmiddle&quot;&gt;&lt;br&gt;&lt;br&gt;&lt;b&gt;Frontend UI&lt;/b&gt;&lt;br&gt;Next.js + Tailwind CSS" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#38bdf8;fontColor=#1e293b;" vertex="1" parent="1">
+          <mxGeometry x="40" y="575" width="170" height="115" as="geometry" />
+        </mxCell>
+        <mxCell id="backend" value="&lt;img src=&quot;https://cdn.worldvectorlogo.com/logos/fastapi-1.svg&quot; height=&quot;24&quot; align=&quot;absmiddle&quot;&gt;&lt;br&gt;&lt;b&gt;Backend API Gateway&lt;/b&gt;&lt;br&gt;FastAPI&lt;br&gt;&lt;font color=&quot;#64748b&quot;&gt;Login · Chat Memory · Query Router&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#4ade80;strokeWidth=2;fontColor=#1e293b;" vertex="1" parent="1">
+          <mxGeometry x="260" y="570" width="240" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="chatdb" value="&lt;img src=&quot;https://upload.wikimedia.org/wikipedia/commons/2/29/Postgresql_elephant.svg&quot; height=&quot;24&quot; align=&quot;absmiddle&quot;&gt;&lt;br&gt;&lt;b&gt;Chat Database&lt;/b&gt;&lt;br&gt;PostgreSQL + SQLAlchemy" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#ffffff;strokeColor=#94a3b8;fontColor=#1e293b;" vertex="1" parent="1">
+          <mxGeometry x="40" y="790" width="170" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="rag" value="&lt;b&gt;RAG Search&lt;/b&gt;&lt;br&gt;embed query · top-K" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#f59e0b;fontColor=#1e293b;" vertex="1" parent="1">
+          <mxGeometry x="600" y="575" width="220" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="t2s" value="&lt;b&gt;Text-to-SQL&lt;/b&gt;&lt;br&gt;read-only queries" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#3b82f6;fontColor=#1e293b;" vertex="1" parent="1">
+          <mxGeometry x="600" y="700" width="220" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="vllm" value="&lt;img src=&quot;https://avatars.githubusercontent.com/u/132924103?v=4&quot; height=&quot;22&quot; align=&quot;absmiddle&quot;&gt; &amp;nbsp;&lt;b&gt;vLLM Inference Server&lt;/b&gt; · Qwen3-VL-8B-Instruct&lt;br&gt;&lt;font color=&quot;#64748b&quot;&gt;one GPU server · used for extraction, SQL and answers&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#a855f7;strokeWidth=2;fontColor=#1e293b;" vertex="1" parent="1">
+          <mxGeometry x="560" y="850" width="460" height="80" as="geometry" />
+        </mxCell>
+
+        <mxCell id="e-fe-be" value="User input" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#64748b;fontColor=#475569;exitX=1;exitY=0.3;entryX=0;entryY=0.3;" edge="1" parent="1" source="frontend" target="backend">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-be-fe" value="Response stream" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#64748b;fontColor=#475569;dashed=1;exitX=0;exitY=0.6;entryX=1;entryY=0.6;" edge="1" parent="1" source="backend" target="frontend">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-be-chat" value="history / save" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#64748b;fontColor=#475569;startArrow=classic;startFill=1;exitX=0.25;exitY=1;entryX=1;entryY=0.5;" edge="1" parent="1" source="backend" target="chatdb">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-be-rag" value="how-to questions" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#64748b;fontColor=#475569;startArrow=classic;startFill=1;exitX=1;exitY=0.25;entryX=0;entryY=0.5;" edge="1" parent="1" source="backend" target="rag">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-be-t2s" value="data questions" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#64748b;fontColor=#475569;startArrow=classic;startFill=1;exitX=1;exitY=0.75;entryX=0;entryY=0.5;" edge="1" parent="1" source="backend" target="t2s">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-rag-vdb" value="search" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#64748b;fontColor=#475569;startArrow=classic;startFill=1;exitX=0.5;exitY=0;entryX=0.5;entryY=1;" edge="1" parent="1" source="rag" target="vectordb">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-t2s-db" value="SQL" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#64748b;fontColor=#475569;startArrow=classic;startFill=1;exitX=1;exitY=0.5;entryX=0.5;entryY=1;" edge="1" parent="1" source="t2s" target="proddb">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="985" y="740" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e-t2s-llm" value="LLM call" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#64748b;fontColor=#475569;dashed=1;exitX=0.5;exitY=1;entryX=0.13;entryY=0;" edge="1" parent="1" source="t2s" target="vllm">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-be-llm" value="prompt ⇄ answer" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#64748b;fontColor=#475569;startArrow=classic;startFill=1;exitX=0.6;exitY=1;entryX=0;entryY=0.5;" edge="1" parent="1" source="backend" target="vllm">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="legend" value="solid = data flow · dashed = lookup / LLM call / response · two-headed arrow = request and response" style="text;html=1;align=left;verticalAlign=middle;fontSize=11;fontColor=#475569;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="20" y="970" width="1200" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

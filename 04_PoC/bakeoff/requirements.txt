@@ -1,0 +1,3 @@
+# run_bakeoff.py / extract.py / validate.py use only the standard library (Python 3.10+).
+# Needed only to rebuild the Excel answer key:
+openpyxl>=3.1

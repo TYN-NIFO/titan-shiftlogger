@@ -1,0 +1,171 @@
+{
+  "_note": "Answer key for the 10 synthetic job cards (photos in 04_PoC/Synthetic_Job_Cards/Photos). Field values are AS WRITTEN on the photos (what a perfect reader should return), with ditto marks resolved and an Emp No written once diagonally copied to every row. Fields not listed in a row are blank on the card. 'corrections' lists where the card differs from the fill sheet (should_be) and which cells are hard to read (unclear). 'expected_flags' are the validation rules that should fire on a perfect reading. Verified by eye against zoomed photos on 18 Nov 2026.",
+  "row_fields": ["emp_no", "shift", "opn_code", "wo_no", "comp_code", "qty_prod", "qty_accp", "rej_code", "rej_qty", "rework_code", "rework_qty", "time_from", "time_to", "total_hours"],
+  "header_fields": ["date", "component_description", "cc", "operation_description", "mc_no"],
+  "cards": [
+    {
+      "card_id": "C01",
+      "photo": "C01_front.jpeg",
+      "scenario": "Normal shift",
+      "header": {"date": "10/11/26", "component_description": "", "cc": "6147", "operation_description": "F, W, T", "mc_no": "604020.08"},
+      "rows": [
+        {"emp_no": "279915", "shift": "A", "opn_code": "10202", "comp_code": "6147", "qty_prod": "900", "qty_accp": "900", "time_from": "6.30", "time_to": "10.00", "total_hours": "3.30"},
+        {"emp_no": "279915", "shift": "A", "opn_code": "10202", "comp_code": "6147", "qty_prod": "1000", "qty_accp": "1000", "time_from": "9.30", "time_to": "2.30", "total_hours": "4.30"}
+      ],
+      "total_hours": "8.00",
+      "handwriting_notes": ["Emp No written once, diagonally", "Comp Code ditto in row 2", "Rej/Rework crossed out with one X", "Sign column blank"],
+      "corrections": [
+        {"field": "rows[0].time_from", "as_written": "6.30", "should_be": "6.00", "unclear": false},
+        {"field": "rows[0].time_to", "as_written": "10.00", "should_be": "9.30", "unclear": false}
+      ],
+      "expected_flags": ["time_overlap"]
+    },
+    {
+      "card_id": "C02",
+      "photo": "C02_front.jpeg",
+      "scenario": "Mechanical breakdown (press)",
+      "header": {"date": "10/11/26", "component_description": "", "cc": "1163", "operation_description": "F, W, T", "mc_no": "604020.11"},
+      "rows": [
+        {"emp_no": "280133", "shift": "A", "opn_code": "10202", "comp_code": "1163", "qty_prod": "500", "qty_accp": "500", "time_from": "6.00", "time_to": "8.00", "total_hours": "2.00"},
+        {"emp_no": "280133", "shift": "A", "opn_code": "10804", "time_from": "8.00", "time_to": "10.30", "total_hours": "2.30"},
+        {"emp_no": "280133", "shift": "A", "opn_code": "10202", "comp_code": "1163", "qty_prod": "800", "qty_accp": "800", "time_from": "10.30", "time_to": "2.30", "total_hours": "3.30"}
+      ],
+      "total_hours": "8.00",
+      "handwriting_notes": ["Emp No written once, diagonally", "10804 has an overwritten digit", "Rej/Rework crossed out", "No Sl. No.", "Sign column blank"],
+      "corrections": [],
+      "expected_flags": []
+    },
+    {
+      "card_id": "C03",
+      "photo": "C03_front.jpeg",
+      "scenario": "Electrical breakdown (CNC) with rejection",
+      "header": {"date": "", "component_description": "Case Middle", "cc": "2250", "operation_description": "F, W, T", "mc_no": "604021.03"},
+      "rows": [
+        {"emp_no": "280207", "shift": "B", "opn_code": "10202", "comp_code": "2250", "qty_prod": "120", "qty_accp": "118", "rej_code": "008", "rej_qty": "2", "time_from": "2.30", "time_to": "5.00", "total_hours": "2.30"},
+        {"emp_no": "280207", "shift": "B", "opn_code": "10803", "time_from": "5.00", "time_to": "7.30", "total_hours": "2.30"},
+        {"emp_no": "280207", "shift": "B", "opn_code": "10202", "comp_code": "2250", "qty_prod": "180", "qty_accp": "130", "time_from": "7.30", "time_to": "11.00", "total_hours": "3.00"}
+      ],
+      "total_hours": "8.00",
+      "handwriting_notes": ["Emp No written once, diagonally", "No Sl. No.", "Sign column blank"],
+      "corrections": [
+        {"field": "header.date", "as_written": "", "should_be": "11/11/26", "unclear": false},
+        {"field": "rows[2].qty_prod", "as_written": "180", "should_be": "130", "unclear": true, "accept": ["180", "130"]}
+      ],
+      "expected_flags": ["missing_date", "qty_balance"]
+    },
+    {
+      "card_id": "C04",
+      "photo": "C04_front.jpeg",
+      "scenario": "Absent",
+      "header": {"date": "11/11/26", "component_description": "", "cc": "", "operation_description": "", "mc_no": "604020.08"},
+      "rows": [
+        {"emp_no": "280419", "shift": "A", "opn_code": "10613", "time_from": "6.00", "time_to": "2.30", "total_hours": "8.00"}
+      ],
+      "total_hours": "8.00",
+      "handwriting_notes": ["Emp No written once, diagonally, far below the row", "Rej/Rework crossed out", "Sign column blank"],
+      "corrections": [
+        {"field": "rows[0].opn_code", "as_written": "10613", "should_be": "10813", "unclear": true, "accept": ["10613", "10813"]}
+      ],
+      "expected_flags": ["invalid_code"]
+    },
+    {
+      "card_id": "C05",
+      "photo": "C05_front.jpeg",
+      "scenario": "Rejections and rework",
+      "header": {"date": "", "component_description": "Case Back", "cc": "6147", "operation_description": "F, W, T", "mc_no": "60402008"},
+      "rows": [
+        {"emp_no": "279842", "shift": "A", "opn_code": "10202", "comp_code": "6147", "qty_prod": "1000", "qty_accp": "950", "rej_code": "004", "rej_qty": "20", "rework_code": "002", "rework_qty": "30", "time_from": "6.00", "time_to": "10.00", "total_hours": "4.00"},
+        {"emp_no": "279842", "shift": "A", "opn_code": "10202", "comp_code": "6147", "qty_prod": "900", "qty_accp": "880", "rej_code": "001", "rej_qty": "10", "rework_code": "001", "rework_qty": "10", "time_from": "10.00", "time_to": "2.30", "total_hours": "4.00"}
+      ],
+      "total_hours": "8.00",
+      "handwriting_notes": ["Emp No written once, diagonally", "Comp Code ditto in row 2", "M/C No written at a slant without the dot", "Qty Accp 880 has an overwritten first digit", "Sign column blank"],
+      "corrections": [
+        {"field": "header.date", "as_written": "", "should_be": "12/11/26", "unclear": false},
+        {"field": "header.mc_no", "as_written": "60402008", "should_be": "604020.08", "unclear": false, "accept": ["60402008", "604020.08"]},
+        {"field": "rows[1].qty_accp", "as_written": "880", "should_be": "880", "unclear": true}
+      ],
+      "expected_flags": ["missing_date", "unknown_machine"]
+    },
+    {
+      "card_id": "C06",
+      "photo": "C06_front.jpeg",
+      "scenario": "No tool and machine cleaning (CNC)",
+      "header": {"date": "12/11/2026", "component_description": "", "cc": "3341", "operation_description": "F, W, T", "mc_no": "604021.05"},
+      "rows": [
+        {"emp_no": "280588", "shift": "B", "opn_code": "10810", "time_from": "2.30", "time_to": "3.30", "total_hours": "1.00"},
+        {"emp_no": "280588", "shift": "B", "opn_code": "10202", "comp_code": "3341", "qty_prod": "150", "qty_accp": "150", "time_from": "3.30", "time_to": "7.00", "total_hours": "3.30"},
+        {"emp_no": "280588", "shift": "B", "opn_code": "10836", "time_from": "7.00", "time_to": "7.30", "total_hours": "0.30"},
+        {"emp_no": "280588", "shift": "B", "opn_code": "10202", "comp_code": "3341", "qty_prod": "120", "qty_accp": "120", "time_from": "7.30", "time_to": "11.00", "total_hours": "3.00"}
+      ],
+      "total_hours": "8.00",
+      "handwriting_notes": ["Emp No written once, diagonally", "Time From/To/Total written about half a row ABOVE the codes; row 1's 1.00 sits in the header cell", "Row 2 Qty Prod/Accp: the middle digit reads as 5 or 8 (150 or 180); models split 150/180/160 in the 18 Nov 2026 bake-off", "Sign column blank"],
+      "corrections": [
+        {"field": "rows[1].qty_prod", "as_written": "150", "should_be": "150", "unclear": true, "accept": ["150", "180"]},
+        {"field": "rows[1].qty_accp", "as_written": "150", "should_be": "150", "unclear": true, "accept": ["150", "180"]}
+      ],
+      "expected_flags": []
+    },
+    {
+      "card_id": "C07",
+      "photo": "C07_front.jpeg",
+      "scenario": "Planned as messy; written clean. S prefix and ditto marks",
+      "header": {"date": "13/11/26", "component_description": "", "cc": "6147, 1163", "operation_description": "", "mc_no": "604020.11"},
+      "rows": [
+        {"emp_no": "279915", "shift": "A", "opn_code": "10202", "comp_code": "6147", "qty_prod": "700", "qty_accp": "700", "time_from": "6.00", "time_to": "9.00", "total_hours": "3.00"},
+        {"emp_no": "279915", "shift": "A", "opn_code": "S10202", "comp_code": "1163", "qty_prod": "05", "qty_accp": "05", "time_from": "9.00", "time_to": "9.30", "total_hours": "0.30"},
+        {"emp_no": "279915", "shift": "A", "opn_code": "S10202", "comp_code": "1163", "qty_prod": "1200", "qty_accp": "1200", "time_from": "9.30", "time_to": "2.30", "total_hours": "4.30"}
+      ],
+      "total_hours": "8.00",
+      "handwriting_notes": ["Emp No in every row", "Opn Code and Comp Code ditto in row 3 (ditto of S10202 / 1163)", "Sign column blank"],
+      "corrections": [
+        {"field": "header.operation_description", "as_written": "", "should_be": "F, W, T", "unclear": false}
+      ],
+      "expected_flags": []
+    },
+    {
+      "card_id": "C08",
+      "photo": "C08_front.jpeg",
+      "scenario": "Deliberate errors: quantity and hours",
+      "header": {"date": "13/11/2026", "component_description": "", "cc": "1163", "operation_description": "F, W, T", "mc_no": "604020.08"},
+      "rows": [
+        {"emp_no": "280671", "shift": "B", "opn_code": "10202", "comp_code": "1163", "qty_prod": "600", "qty_accp": "650", "time_from": "2.30", "time_to": "6.00", "total_hours": "3.30"},
+        {"emp_no": "280671", "shift": "B", "opn_code": "10202", "comp_code": "1163", "qty_prod": "700", "qty_accp": "700", "time_from": "6.00", "time_to": "11.00", "total_hours": "4.00"}
+      ],
+      "total_hours": "7.30",
+      "handwriting_notes": ["Emp No in every row", "7s written with a crossbar (look like T)", "Sign column blank"],
+      "corrections": [],
+      "expected_flags": ["accp_gt_prod", "qty_balance", "row_hours_mismatch", "shift_hours_not_8"]
+    },
+    {
+      "card_id": "C09",
+      "photo": "C09_front.jpeg",
+      "scenario": "Deliberate errors: employee, code, time",
+      "header": {"date": "14/11/2026", "component_description": "", "cc": "2250", "operation_description": "F, W, T", "mc_no": "604021.03"},
+      "rows": [
+        {"emp_no": "999999", "shift": "A", "opn_code": "10202", "comp_code": "2250", "qty_prod": "150", "qty_accp": "150", "time_from": "6.00", "time_to": "10.00", "total_hours": "4.00"},
+        {"emp_no": "999999", "shift": "A", "opn_code": "10899", "time_from": "9.30", "time_to": "11.00", "total_hours": "1.30"},
+        {"emp_no": "999999", "shift": "A", "opn_code": "10202", "comp_code": "2250", "qty_prod": "100", "qty_accp": "100", "time_from": "11.00", "time_to": "2.30", "total_hours": "3.00"}
+      ],
+      "total_hours": "8.30",
+      "handwriting_notes": ["Emp No in every row", "Sign column blank"],
+      "corrections": [],
+      "expected_flags": ["unknown_employee", "invalid_code", "time_overlap", "shift_hours_not_8"]
+    },
+    {
+      "card_id": "C10",
+      "photo": "C10_front.jpeg",
+      "scenario": "Shift B: maintenance, TPM, rework and rejection",
+      "header": {"date": "14/11/2026", "component_description": "", "cc": "6147, 1163", "operation_description": "F, W", "mc_no": "604020.11"},
+      "rows": [
+        {"emp_no": "280356", "shift": "B", "opn_code": "10801", "time_from": "2.30", "time_to": "4.00", "total_hours": "1.30"},
+        {"emp_no": "280356", "shift": "B", "opn_code": "10202", "comp_code": "6147", "qty_prod": "600", "qty_accp": "590", "rework_code": "012", "rework_qty": "10", "time_from": "4.00", "time_to": "7.00", "total_hours": "3.00"},
+        {"emp_no": "280356", "shift": "B", "opn_code": "10825", "time_from": "7.00", "time_to": "7.30", "total_hours": "0.30"},
+        {"emp_no": "280356", "shift": "B", "opn_code": "10202", "comp_code": "1163", "qty_prod": "800", "qty_accp": "795", "rej_code": "009", "rej_qty": "5", "time_from": "7.30", "time_to": "11.00", "total_hours": "3.00"}
+      ],
+      "total_hours": "8.00",
+      "handwriting_notes": ["Emp No in every row", "10825 has an overwritten digit", "Sign column blank"],
+      "corrections": [],
+      "expected_flags": []
+    }
+  ]
+}
