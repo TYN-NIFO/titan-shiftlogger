@@ -1,0 +1,172 @@
+@import "tailwindcss";
+
+/* Light theme only: dark: styles never apply. */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/*
+ * Design system: "shop-floor control room".
+ * Warm paper canvas + white panels, with dark "night" panels for live data,
+ * Titan teal as the accent and a coral signal colour for anything that needs a person.
+ * Geist for UI, Geist Mono for IDs, codes, machine numbers and small labels.
+ * Change colours here only.
+ */
+@theme {
+  --font-sans: var(--font-app), "Segoe UI", system-ui, sans-serif;
+  --font-mono: var(--font-code), "Cascadia Mono", Consolas, ui-monospace, monospace;
+
+  /* Titan teal (accent) */
+  --color-brand-50: #e9f8f7;
+  --color-brand-100: #ccefed;
+  --color-brand-200: #9be0dc;
+  --color-brand-300: #5fcdc8;
+  --color-brand-400: #2ec0bb;
+  --color-brand-500: #00b2ad;
+  --color-brand-600: #00918d;
+  --color-brand-700: #0b7774;
+
+  /* Titan deep teal and the night panels derived from it */
+  --color-deep-900: #115e6e;
+  --color-night: #0b2227;
+  --color-night-2: #10303a;
+  --color-night-3: #17404c;
+  --color-night-line: #22505c;
+  --color-night-text: #cfe3e5;
+  --color-night-muted: #7fa0a6;
+
+  /* Neutrals: warm paper, not cool grey */
+  --color-ink: #10191b;
+  --color-muted: #5d6967;
+  --color-subtle: #8c9693;
+  --color-line: #e3e4de;
+  --color-line-strong: #d2d4cc;
+  --color-surface: #ffffff;
+  --color-canvas: #f2f2ed;
+  --color-panel: #f6f6f2;
+
+  /* Signals */
+  --color-signal: #f0643c;      /* needs a person: flags, review */
+  --color-signal-bg: #fff1ec;
+  --color-signal-text: #b8401c;
+  --color-ok: #1f9d63;
+  --color-ok-bg: #eaf7f0;
+  --color-bad: #d23b3b;
+  --color-bad-bg: #fdeeee;
+
+  /* Legacy aliases used by older components */
+  --color-warn: #f0643c;
+  --color-warn-bg: #fff1ec;
+  --color-warn-text: #b8401c;
+  --color-grey-brand: #5d6967;
+}
+
+:root {
+  color-scheme: light;
+}
+
+html {
+  font-size: 16px;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background: var(--color-canvas);
+  color: var(--color-ink);
+  -webkit-font-smoothing: antialiased;
+  font-feature-settings: "ss01", "cv01";
+}
+
+.tabular,
+table,
+input {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Small uppercase mono label used across panels */
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+/* Faint engineering grid, used behind the card photo */
+.grid-paper {
+  background-color: var(--color-night);
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+@layer base {
+  :focus-visible {
+    outline: 2px solid var(--color-brand-500);
+    outline-offset: 2px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.rise {
+  animation: rise 0.45s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+@keyframes live-ping {
+  0% {
+    box-shadow: 0 0 0 0 rgb(0 178 173 / 0.55);
+  }
+  100% {
+    box-shadow: 0 0 0 7px rgb(0 178 173 / 0);
+  }
+}
+.live-dot {
+  animation: live-ping 1.6s ease-out infinite;
+}
+
+@keyframes flag-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgb(240 100 60 / 0);
+  }
+  50% {
+    box-shadow: 0 0 0 5px rgb(240 100 60 / 0.35);
+  }
+}
+.flag-pulse-a {
+  animation: flag-pulse 1.2s ease-in-out 2;
+}
+/* Same animation under a second name, so clicking the same flag again restarts it. */
+@keyframes flag-pulse-b {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgb(240 100 60 / 0);
+  }
+  50% {
+    box-shadow: 0 0 0 5px rgb(240 100 60 / 0.35);
+  }
+}
+.flag-pulse-b {
+  animation: flag-pulse-b 1.2s ease-in-out 2;
+}

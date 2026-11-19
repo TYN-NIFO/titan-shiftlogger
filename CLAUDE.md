@@ -96,7 +96,9 @@ Pre-sales / proposal workspace for The Yellow Network (TYN). The client is Titan
 4. `04_PoC/Synthetic_Job_Cards/`: 10 filled synthetic cards photographed (18 Nov 2026), fronts only, no re-shoots possible. Deviations from the fill sheet are kept as real-world test cases: C01 time overlap, C03 missing date + qty 180/130 (unclear), C04 10813 written like 10613 (unclear), C05 missing date + M/C written 60402008, C06 times half a row above codes, C07 clean (not messy) + no Op Description, no Sign initials anywhere. `Answer_Key_C01-C10.xlsx` records what's written on the photos.
 5. **Bake-off code** (`04_PoC/bakeoff/`, 18 Nov 2026): `data/answer_key.json` (source of truth) + `data/master_data.json` (real code sheet + demo masters), `validate.py` (the validation rules; reused by the PoC), `extract.py` (Ollama, forced JSON, `ocr>mapper` pipelines), `score.py`, `run_bakeoff.py` (`--self-test` must show 100% / 0 missed reviews). The user runs it on a separate VM with Ollama. Tested: Qwen3-VL 8B/30B-A3B/32B, Qwen3.8 27B (newest, vision), Qwen3.6 35B-A3B, GLM-OCR→Qwen. No Qwen4 exists (checked 18 Nov 2026). Human-in-the-loop = supervisor review of flagged cards only.
 6. **Bake-off done (18 Nov 2026)** on a shared internal GPU server (one H200 slice, Ollama in Docker; other workloads share it, so check `nvidia-smi` before big runs). Server access details are kept out of the repo. Winner **Qwen3.8 27B Q4**: 99.6% fields, 9/10 perfect, 0 missed reviews, 17 GB GPU, ~15 s/card; Q8 scored the same. GLM-OCR→Qwen made it worse (dropped). Final settings: value lists in prompt (without them 85%), thinking off (same accuracy, 2× slower), output cap 3,072. `score.py` "missed reviews" was fixed to count every auto-saved wrong card (it used to skip clean cards). `agreement.py` = two-reader check (use a different model as checker, e.g. Qwen3-VL 30B-A3B). Full table in PROJECT.md §7.
-7. Next: real cards on Titan's server; bulk synthetic data (4 weeks × 80 operators) for chatbot/dashboards; then build the PoC.
+7. **PoC app built (19 Nov 2026), `05_App/`**: Next.js frontend (Ask / Cards / Review queue; "shop-floor control room" design: dark rail, Geist + Geist Mono, Titan teal accent, coral for review), FastAPI backend (upload, AI read, validate, review; text-to-SQL chat with sqlglot guard, read-only role, number check), Postgres with 4 months of synthetic cards (80 operators with sample names, 12 machines) and planted demo answers. `CONTRACT.md` is the spec; `05_App/README.md` has the VM run steps; `scripts/reset_demo.py` before every take. No dashboard screen (user: dashboards are not a PoC feature). Live model not yet tested against the chat prompts.
+8. **Demo video** (`05_Demo_Video/Titan_demo_video_script.md`, FINAL section): 1:30, Lathiesh narrates; problem, reading, value, errors, human in the loop, next step. Recorded on the GPU VM.
+9. Next: run the app on the VM with the live model, tune prompts, dry run, record.
 
 ## Git repo
 
@@ -113,6 +115,8 @@ Pre-sales / proposal workspace for The Yellow Network (TYN). The client is Titan
 04_PoC/
   Synthetic_Job_Cards/  fill sheets PDF (C01–C10), Photos/C01–C10_front.jpeg, Answer_Key_C01-C10.xlsx
   bakeoff/              answer key + master data JSON, prompts, extract/validate/score/run_bakeoff scripts, README
+05_App/             PoC app: CONTRACT.md, backend/ (FastAPI + Postgres), frontend/ (Next.js), README (VM run steps)
+05_Demo_Video/      demo video script (1:30, FINAL section at the top)
 PROJECT.md          full project overview (team-facing)
 ```
 

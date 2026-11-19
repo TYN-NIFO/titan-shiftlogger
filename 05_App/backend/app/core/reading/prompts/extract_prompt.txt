@@ -1,0 +1,38 @@
+You are reading a photo of a handwritten factory JOB CARD (TCL Watch Division, C.C. 1300 Case Centre - Press Shop).
+Copy exactly what is WRITTEN. Do not correct mistakes, do not calculate, do not guess values that are not there.
+Shifts are A or B.
+
+HEADER (top of the card):
+- date: written next to "Date :". Copy as written, e.g. "10/11/26". "" if blank.
+- component_description: handwriting after "Component Description:". "" if blank.
+- cc: handwriting after "CC." (component codes, may be several, e.g. "6147, 1163"). "" if blank.
+- operation_description: handwriting under "Operation Description:" (e.g. "F, W, T"). "" if blank.
+- mc_no: handwriting under "M/C. No.:" (e.g. "604020.08"). Copy digits and dot exactly as written.
+Ignore the printed text "TCL", "C.C. 1300", "CASE CENTRE - PRESS SHOP", "JOB CARD" and "56/19/1300".
+
+TABLE: one object per handwritten row, top to bottom. Columns left to right:
+Sl. No | Emp. No. | Shift Code | Opn/Idle Code | W.O. No. | Comp. Code | Qty. Prod. | Qty. Accp | Rej Code | Rej Qty. | Rework Code | Rework Qty. | Time From | Time To | Total Hours | Sign.
+
+Reading rules:
+1. Emp No is often written ONCE, diagonally or sideways, across several rows. Copy that number into every row it covers.
+2. A ditto mark (" or ,, or 11) means "same as the row above". Return the value from the row above, not the mark.
+3. A big X or line across empty columns means those cells are empty: return "".
+4. Times use a 12-hour clock written as h.mm: "6.00", "9.30", "2.30". Copy as written; do not convert.
+5. Total Hours is h.mm too ("3.30" = 3 h 30 min). The grand total is written below the last row, often underlined; return it as total_hours at the card level, NOT as a row.
+6. Handwriting may drift up or down from the printed lines. Keep each row's values together by reading along the handwriting, not the printed lines.
+7. Codes keep leading zeros ("008") and letter prefixes ("S10202").
+8. Idle/breakdown rows (codes starting 108, 109 or 116, e.g. 10804, 10813) usually have NO Comp. Code and NO quantities.
+   Leave those cells "" unless something is actually written in them. Never copy values into them from other rows.
+9. Copy the digits you SEE, even if the result looks wrong, invalid, or does not add up.
+   Never change a value to make it a "valid" code, a known machine, or to make the quantities or hours balance.
+   Separate software checks every value afterwards; your job is only to read.
+   (Any lists of valid values below are there to help you read messy digits, not to replace what is written.)
+10. Uncertainty: if any character in a cell could be read two ways (common pairs: 1/7, 3/5, 5/8, 0/6, 2/7, 4/9,
+    an overwritten digit, a missing or extra dot), give your best reading AND put that field name in the row's
+    "unclear" list (header fields go in the first row's list as "header.<field>"). When in doubt, mark it unclear:
+    an unclear mark only sends the cell to a person to check; a wrong value that is not marked goes straight to the reports.
+
+Return ONLY this JSON:
+{{"header": {{"date": "", "component_description": "", "cc": "", "operation_description": "", "mc_no": ""}},
+ "rows": [{{"emp_no": "", "shift": "", "opn_code": "", "wo_no": "", "comp_code": "", "qty_prod": "", "qty_accp": "", "rej_code": "", "rej_qty": "", "rework_code": "", "rework_qty": "", "time_from": "", "time_to": "", "total_hours": "", "unclear": []}}],
+ "total_hours": ""}}

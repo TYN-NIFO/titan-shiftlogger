@@ -1,0 +1,654 @@
+{
+  "_note": "Master lists for the PoC bake-off. Idle, rework and rejection codes are copied from the back of Titan's real job card. Employees, machines, components, shifts and the 10202 production code are DEMO ASSUMPTIONS for synthetic data, to be replaced by Titan's real lists. Expanded for the 05_App PoC (19 Nov 2026): 80 made-up employees, 12 machines (7 Press 604020.xx, 5 CNC 604021.xx), 8 components. New keys: employee_details (shift group, home machine), component_details (description, machine type, standard accepted qty per productive hour), idle_code_categories. All synthetic. employee_names and machine_names (added 19 Nov 2026) are made-up sample display names, not real people or Titan machine names.",
+  "employees": [
+    "279842",
+    "279915",
+    "280133",
+    "280207",
+    "280356",
+    "280419",
+    "280588",
+    "280671",
+    "279871",
+    "279876",
+    "279895",
+    "279898",
+    "279901",
+    "279918",
+    "279921",
+    "279922",
+    "279926",
+    "279928",
+    "279943",
+    "279948",
+    "279967",
+    "279976",
+    "279985",
+    "279992",
+    "279999",
+    "280011",
+    "280041",
+    "280053",
+    "280072",
+    "280095",
+    "280108",
+    "280168",
+    "280170",
+    "280184",
+    "280221",
+    "280239",
+    "280252",
+    "280257",
+    "280292",
+    "280299",
+    "280308",
+    "280393",
+    "280413",
+    "280414",
+    "280431",
+    "280443",
+    "280463",
+    "280512",
+    "280540",
+    "280548",
+    "280562",
+    "280608",
+    "280612",
+    "280656",
+    "280658",
+    "280669",
+    "280675",
+    "280688",
+    "280728",
+    "280744",
+    "280753",
+    "280816",
+    "280839",
+    "280875",
+    "280888",
+    "280897",
+    "280903",
+    "280907",
+    "280921",
+    "280928",
+    "280940",
+    "280947",
+    "280955",
+    "280958",
+    "280969",
+    "280976",
+    "280981",
+    "280991",
+    "280993",
+    "280999"
+  ],
+  "employee_details": {
+    "279842": {
+      "shift_group": "A",
+      "home_mc_no": "604020.08"
+    },
+    "279915": {
+      "shift_group": "A",
+      "home_mc_no": "604020.08"
+    },
+    "280133": {
+      "shift_group": "A",
+      "home_mc_no": "604020.11"
+    },
+    "280207": {
+      "shift_group": "B",
+      "home_mc_no": "604021.03"
+    },
+    "280356": {
+      "shift_group": "B",
+      "home_mc_no": "604020.11"
+    },
+    "280419": {
+      "shift_group": "A",
+      "home_mc_no": "604020.08"
+    },
+    "280588": {
+      "shift_group": "B",
+      "home_mc_no": "604021.05"
+    },
+    "280671": {
+      "shift_group": "B",
+      "home_mc_no": "604020.08"
+    },
+    "279871": {
+      "shift_group": "A",
+      "home_mc_no": "604021.07"
+    },
+    "279876": {
+      "shift_group": "A",
+      "home_mc_no": "604021.01"
+    },
+    "279895": {
+      "shift_group": "B",
+      "home_mc_no": "604021.07"
+    },
+    "279898": {
+      "shift_group": "B",
+      "home_mc_no": "604020.11"
+    },
+    "279901": {
+      "shift_group": "B",
+      "home_mc_no": "604020.02"
+    },
+    "279918": {
+      "shift_group": "B",
+      "home_mc_no": "604020.04"
+    },
+    "279921": {
+      "shift_group": "A",
+      "home_mc_no": "604021.01"
+    },
+    "279922": {
+      "shift_group": "A",
+      "home_mc_no": "604020.15"
+    },
+    "279926": {
+      "shift_group": "A",
+      "home_mc_no": "604020.08"
+    },
+    "279928": {
+      "shift_group": "B",
+      "home_mc_no": "604020.15"
+    },
+    "279943": {
+      "shift_group": "A",
+      "home_mc_no": "604020.04"
+    },
+    "279948": {
+      "shift_group": "A",
+      "home_mc_no": "604021.05"
+    },
+    "279967": {
+      "shift_group": "A",
+      "home_mc_no": "604020.15"
+    },
+    "279976": {
+      "shift_group": "A",
+      "home_mc_no": "604020.02"
+    },
+    "279985": {
+      "shift_group": "A",
+      "home_mc_no": "604021.05"
+    },
+    "279992": {
+      "shift_group": "B",
+      "home_mc_no": "604021.09"
+    },
+    "279999": {
+      "shift_group": "A",
+      "home_mc_no": "604020.11"
+    },
+    "280011": {
+      "shift_group": "B",
+      "home_mc_no": "604020.06"
+    },
+    "280041": {
+      "shift_group": "A",
+      "home_mc_no": "604021.09"
+    },
+    "280053": {
+      "shift_group": "A",
+      "home_mc_no": "604021.09"
+    },
+    "280072": {
+      "shift_group": "B",
+      "home_mc_no": "604020.11"
+    },
+    "280095": {
+      "shift_group": "B",
+      "home_mc_no": "604021.01"
+    },
+    "280108": {
+      "shift_group": "B",
+      "home_mc_no": "604021.09"
+    },
+    "280168": {
+      "shift_group": "A",
+      "home_mc_no": "604020.02"
+    },
+    "280170": {
+      "shift_group": "A",
+      "home_mc_no": "604021.07"
+    },
+    "280184": {
+      "shift_group": "A",
+      "home_mc_no": "604020.04"
+    },
+    "280221": {
+      "shift_group": "B",
+      "home_mc_no": "604020.13"
+    },
+    "280239": {
+      "shift_group": "A",
+      "home_mc_no": "604020.04"
+    },
+    "280252": {
+      "shift_group": "A",
+      "home_mc_no": "604021.09"
+    },
+    "280257": {
+      "shift_group": "B",
+      "home_mc_no": "604021.09"
+    },
+    "280292": {
+      "shift_group": "B",
+      "home_mc_no": "604020.08"
+    },
+    "280299": {
+      "shift_group": "B",
+      "home_mc_no": "604020.15"
+    },
+    "280308": {
+      "shift_group": "A",
+      "home_mc_no": "604020.13"
+    },
+    "280393": {
+      "shift_group": "A",
+      "home_mc_no": "604020.13"
+    },
+    "280413": {
+      "shift_group": "A",
+      "home_mc_no": "604020.02"
+    },
+    "280414": {
+      "shift_group": "B",
+      "home_mc_no": "604021.07"
+    },
+    "280431": {
+      "shift_group": "B",
+      "home_mc_no": "604021.05"
+    },
+    "280443": {
+      "shift_group": "B",
+      "home_mc_no": "604020.02"
+    },
+    "280463": {
+      "shift_group": "B",
+      "home_mc_no": "604020.15"
+    },
+    "280512": {
+      "shift_group": "A",
+      "home_mc_no": "604020.06"
+    },
+    "280540": {
+      "shift_group": "A",
+      "home_mc_no": "604021.05"
+    },
+    "280548": {
+      "shift_group": "B",
+      "home_mc_no": "604021.03"
+    },
+    "280562": {
+      "shift_group": "B",
+      "home_mc_no": "604020.04"
+    },
+    "280608": {
+      "shift_group": "B",
+      "home_mc_no": "604020.08"
+    },
+    "280612": {
+      "shift_group": "B",
+      "home_mc_no": "604020.08"
+    },
+    "280656": {
+      "shift_group": "A",
+      "home_mc_no": "604020.02"
+    },
+    "280658": {
+      "shift_group": "A",
+      "home_mc_no": "604021.07"
+    },
+    "280669": {
+      "shift_group": "A",
+      "home_mc_no": "604020.11"
+    },
+    "280675": {
+      "shift_group": "B",
+      "home_mc_no": "604020.11"
+    },
+    "280688": {
+      "shift_group": "A",
+      "home_mc_no": "604020.06"
+    },
+    "280728": {
+      "shift_group": "B",
+      "home_mc_no": "604020.04"
+    },
+    "280744": {
+      "shift_group": "A",
+      "home_mc_no": "604021.03"
+    },
+    "280753": {
+      "shift_group": "A",
+      "home_mc_no": "604021.03"
+    },
+    "280816": {
+      "shift_group": "B",
+      "home_mc_no": "604020.06"
+    },
+    "280839": {
+      "shift_group": "B",
+      "home_mc_no": "604020.06"
+    },
+    "280875": {
+      "shift_group": "A",
+      "home_mc_no": "604020.06"
+    },
+    "280888": {
+      "shift_group": "A",
+      "home_mc_no": "604020.13"
+    },
+    "280897": {
+      "shift_group": "B",
+      "home_mc_no": "604021.05"
+    },
+    "280903": {
+      "shift_group": "B",
+      "home_mc_no": "604020.13"
+    },
+    "280907": {
+      "shift_group": "B",
+      "home_mc_no": "604020.02"
+    },
+    "280921": {
+      "shift_group": "A",
+      "home_mc_no": "604021.01"
+    },
+    "280928": {
+      "shift_group": "B",
+      "home_mc_no": "604020.02"
+    },
+    "280940": {
+      "shift_group": "B",
+      "home_mc_no": "604021.01"
+    },
+    "280947": {
+      "shift_group": "B",
+      "home_mc_no": "604020.04"
+    },
+    "280955": {
+      "shift_group": "A",
+      "home_mc_no": "604020.04"
+    },
+    "280958": {
+      "shift_group": "B",
+      "home_mc_no": "604021.07"
+    },
+    "280969": {
+      "shift_group": "A",
+      "home_mc_no": "604021.03"
+    },
+    "280976": {
+      "shift_group": "B",
+      "home_mc_no": "604021.01"
+    },
+    "280981": {
+      "shift_group": "B",
+      "home_mc_no": "604020.13"
+    },
+    "280991": {
+      "shift_group": "A",
+      "home_mc_no": "604020.11"
+    },
+    "280993": {
+      "shift_group": "A",
+      "home_mc_no": "604020.15"
+    },
+    "280999": {
+      "shift_group": "B",
+      "home_mc_no": "604021.03"
+    }
+  },
+  "employee_names": {
+    "279842": "Ravi K.",
+    "279915": "Meena V.",
+    "280133": "Arun A.",
+    "280207": "Lakshmi S.",
+    "280356": "Suresh N.",
+    "280419": "Divya D.",
+    "280588": "Karthik R.",
+    "280671": "Priya B.",
+    "279871": "Murali L.",
+    "279876": "Anitha M.",
+    "279895": "Senthil G.",
+    "279898": "Kavya J.",
+    "279901": "Ganesh P.",
+    "279918": "Revathi T.",
+    "279921": "Prakash K.",
+    "279922": "Sangeetha V.",
+    "279926": "Vijay A.",
+    "279928": "Deepa S.",
+    "279943": "Manoj N.",
+    "279948": "Saranya D.",
+    "279967": "Ramesh R.",
+    "279976": "Nithya B.",
+    "279985": "Dinesh L.",
+    "279992": "Pooja M.",
+    "279999": "Bala G.",
+    "280011": "Keerthana J.",
+    "280041": "Mohan P.",
+    "280053": "Swathi T.",
+    "280072": "Sathish K.",
+    "280095": "Indira V.",
+    "280108": "Rajesh A.",
+    "280168": "Harini S.",
+    "280170": "Anand N.",
+    "280184": "Vani D.",
+    "280221": "Kumar R.",
+    "280239": "Gayathri B.",
+    "280252": "Naveen L.",
+    "280257": "Malathi M.",
+    "280292": "Sridhar G.",
+    "280299": "Bhavani J.",
+    "280308": "Venkat P.",
+    "280393": "Shalini T.",
+    "280413": "Ashok K.",
+    "280414": "Janani V.",
+    "280431": "Hari A.",
+    "280443": "Sowmya S.",
+    "280463": "Prabhu N.",
+    "280512": "Uma D.",
+    "280540": "Gopal R.",
+    "280548": "Asha B.",
+    "280562": "Selvam L.",
+    "280608": "Radha M.",
+    "280612": "Vinod G.",
+    "280656": "Nandini J.",
+    "280658": "Mani P.",
+    "280669": "Shobana T.",
+    "280675": "Raghu K.",
+    "280688": "Kamala V.",
+    "280728": "Sekar A.",
+    "280744": "Vidya S.",
+    "280753": "Balaji N.",
+    "280816": "Geetha D.",
+    "280839": "Kannan R.",
+    "280875": "Rekha B.",
+    "280888": "Arjun L.",
+    "280897": "Sudha M.",
+    "280903": "Siva G.",
+    "280907": "Jaya J.",
+    "280921": "Pradeep P.",
+    "280928": "Latha T.",
+    "280940": "Mahesh K.",
+    "280947": "Chitra V.",
+    "280955": "Raja A.",
+    "280958": "Vasanthi S.",
+    "280969": "Ilango N.",
+    "280976": "Padma D.",
+    "280981": "Sundar R.",
+    "280991": "Rani B.",
+    "280993": "Tamil L.",
+    "280999": "Usha M."
+  },
+  "machines": {
+    "604020.02": "Press",
+    "604020.04": "Press",
+    "604020.06": "Press",
+    "604020.08": "Press",
+    "604020.11": "Press",
+    "604020.13": "Press",
+    "604020.15": "Press",
+    "604021.01": "CNC",
+    "604021.03": "CNC",
+    "604021.05": "CNC",
+    "604021.07": "CNC",
+    "604021.09": "CNC"
+  },
+  "machine_names": {
+    "604020.02": "Blanking press 1",
+    "604020.04": "Blanking press 2",
+    "604020.06": "Piercing press",
+    "604020.08": "Hydraulic press 100T",
+    "604020.11": "Hydraulic press 150T",
+    "604020.13": "Coining press",
+    "604020.15": "Forming press",
+    "604021.01": "CNC turning centre 1",
+    "604021.03": "CNC bezel milling",
+    "604021.05": "CNC case milling 1",
+    "604021.07": "CNC case milling 2",
+    "604021.09": "CNC turning centre 2"
+  },
+  "components": [
+    "6147",
+    "1163",
+    "2250",
+    "3341",
+    "4418",
+    "5172",
+    "7205",
+    "8830"
+  ],
+  "component_details": {
+    "6147": {
+      "description": "Case Back",
+      "machine_type": "Press",
+      "std_rate_per_hour": 240
+    },
+    "1163": {
+      "description": "Case Bezel",
+      "machine_type": "Press",
+      "std_rate_per_hour": 250
+    },
+    "2250": {
+      "description": "Case Middle",
+      "machine_type": "CNC",
+      "std_rate_per_hour": 45
+    },
+    "3341": {
+      "description": "Case Ring",
+      "machine_type": "CNC",
+      "std_rate_per_hour": 42
+    },
+    "4418": {
+      "description": "Lug Plate",
+      "machine_type": "Press",
+      "std_rate_per_hour": 220
+    },
+    "5172": {
+      "description": "Crown Tube Blank",
+      "machine_type": "Press",
+      "std_rate_per_hour": 260
+    },
+    "7205": {
+      "description": "Case Middle (Sport)",
+      "machine_type": "CNC",
+      "std_rate_per_hour": 38
+    },
+    "8830": {
+      "description": "Case Back (Screw)",
+      "machine_type": "CNC",
+      "std_rate_per_hour": 35
+    }
+  },
+  "shifts": {
+    "A": {
+      "start": "6.00",
+      "end": "2.30",
+      "break_minutes": 30,
+      "paid_hours": 8.0
+    },
+    "B": {
+      "start": "2.30",
+      "end": "11.00",
+      "break_minutes": 30,
+      "paid_hours": 8.0
+    }
+  },
+  "production_codes": {
+    "10202": "Production (assumed; not on the code sheet)"
+  },
+  "production_code_prefixes": {
+    "S": "Setup / trial run (assumed; meaning unknown)"
+  },
+  "idle_codes": {
+    "10801": "Preventive Maintenance",
+    "10803": "Electrical Machine breakdown",
+    "10804": "Mechanical Machine breakdown",
+    "10806": "No Load",
+    "10808": "No Utilities (Power, Compressed Air, Water, Chilled water & Air duct)",
+    "10810": "No Tool",
+    "10811": "Tool Reconditioning",
+    "10813": "Absenteeism",
+    "10815": "Training",
+    "10816": "Welfare",
+    "10817": "Machine Modification/Development",
+    "10818": "Tryout Process / Material / Tool",
+    "10819": "Technical Problems (other than the above reasons)",
+    "10825": "TPM Activities carried out by the Operator on the Machine",
+    "10826": "Kanban Full",
+    "10829": "Adjustment to 3rd Shift",
+    "10835": "Shop Service Activity & Furnace, Oiling, Durr",
+    "10836": "Machine Cleaning",
+    "10910": "Annealing",
+    "11600": "Inspection (Shop)"
+  },
+  "idle_code_categories": {
+    "10801": "maintenance",
+    "10803": "breakdown",
+    "10804": "breakdown",
+    "10806": "material",
+    "10808": "utilities",
+    "10810": "tooling",
+    "10811": "tooling",
+    "10813": "people",
+    "10815": "people",
+    "10816": "people",
+    "10817": "maintenance",
+    "10818": "tooling",
+    "10819": "other",
+    "10825": "maintenance",
+    "10826": "material",
+    "10829": "people",
+    "10835": "other",
+    "10836": "maintenance",
+    "10910": "other",
+    "11600": "other"
+  },
+  "rework_codes": {
+    "001": "Black Stains",
+    "002": "Burr",
+    "004": "Dent On Mg Seating/d.slant/impression",
+    "005": "Damages",
+    "006": "Operation Miss",
+    "007": "Insufficient Material Flow",
+    "010": "Peel Off (mg/dst)",
+    "011": "Mixup",
+    "012": "Scoring Mark",
+    "013": "Dial Opening Related Issues"
+  },
+  "rejection_codes": {
+    "001": "DAMAGE",
+    "004": "Tool chipped off",
+    "005": "wrong tool used",
+    "006": "Mis location",
+    "007": "Billet melting",
+    "008": "Crack",
+    "009": "Bottom dent"
+  }
+}

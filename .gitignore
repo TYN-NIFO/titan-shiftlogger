@@ -16,3 +16,10 @@ venv/
 Thumbs.db
 desktop.ini
 .DS_Store
+
+# 05_App
+05_App/.env
+05_App/backend/storage/
+05_App/frontend/node_modules/
+05_App/frontend/.next/
+*.tsbuildinfo

@@ -10,7 +10,7 @@ what's still open.
 
 ---
 
-## 1. Status at a glance (18 Nov 2026)
+## 1. Status at a glance (19 Nov 2026)
 
 | Area | Status |
 |---|---|
@@ -21,6 +21,8 @@ what's still open.
 | Synthetic job cards | 10 cards filled and photographed (fronts only) |
 | Answer key + validation rules | Done (`04_PoC/bakeoff/`) |
 | Model bake-off | Done, 18 Nov 2026. Winner: Qwen3.8 27B (Q4), 99.6% fields, 0 missed reviews, 17 GB GPU (§7) |
+| PoC app (`05_App/`) | Built 19 Nov 2026: Ask (chat with chart / ranking / query), Cards, Review queue; synthetic data loaded. Live-model run on the VM next |
+| Demo video | Script final (`05_Demo_Video/`, 1:30). Recording on the GPU VM next |
 
 ---
 
@@ -294,6 +296,8 @@ Chatbot ─┬─ data questions ("CNC downtime last 4 months") ─► read-only
 04_PoC/
   Synthetic_Job_Cards/   fill sheets PDF, Photos/, Answer_Key xlsx
   bakeoff/               answer key + master data JSON, prompts, extract / validate / score / run scripts
+05_App/             PoC app: backend (FastAPI + Postgres), frontend (Next.js), CONTRACT.md, README with VM run steps
+05_Demo_Video/      Demo video script (1:30)
 CLAUDE.md           Working notes for Claude Code sessions
 PROJECT.md          This file
 ```
