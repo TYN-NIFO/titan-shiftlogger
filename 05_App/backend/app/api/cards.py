@@ -52,7 +52,8 @@ def cards_summary(db: Session = Depends(get_session)) -> dict:
     return {"total": sum(by.values()), "approved": by.get("approved", 0),
             "needs_review": by.get("needs_review", 0), "failed": by.get("failed", 0),
             "processing": by.get("processing", 0),
-            "photo_total": sum(photo.values()), "photo_auto_approved": auto}
+            "photo_total": sum(photo.values()), "photo_auto_approved": auto,
+            "photo_supervisor_approved": max(photo.get("approved", 0) - auto, 0)}
 
 
 @router.post("/api/cards")

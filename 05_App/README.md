@@ -68,6 +68,12 @@ Expected during the take:
 
 All names are made-up sample data.
 
+Notes from take 3:
+- Open the Cards screen and let it finish loading (counts filled in, top bar "AI live") before "Here's what we built".
+- Upload C08 straight after C04, so its 4 checks are on screen for "Here, accepted is more than produced".
+- After approving C04 the Review queue moves to the next card; hold on C04 for a beat, then cut to Cards.
+  C04 then shows "Fixed by supervisor", and the flow strip shows "+ 1 fixed by supervisor".
+
 ## Run locally (Windows laptop)
 
 See `backend/README.md` and `frontend/README.md`. Without the GPU, start the backend with `LLM_MODE=stub`

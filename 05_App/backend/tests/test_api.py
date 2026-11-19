@@ -111,6 +111,11 @@ def test_review_fix_and_approve(client, photo, database):
     assert item["status"] == "approved" and item["card_date"] == "2026-11-11" and item["mc_no"] == "604020.08"
     assert item["flag_count"] == 0
 
+    s = client.get("/api/cards/summary").json()
+    assert s["photo_supervisor_approved"] >= 1
+    assert s["photo_auto_approved"] + s["photo_supervisor_approved"] + s["needs_review"] \
+        + s["processing"] + s["failed"] == s["photo_total"]
+
 
 def test_list_filters_and_order(client, photo):
     _upload(client, photo, "C08")

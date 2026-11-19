@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useRef, useState } from "react";
-import { AlertCircle, AlertTriangle, Camera, Database, ImageUp, Loader2, Upload, X } from "lucide-react";
+import { AlertCircle, AlertTriangle, Camera, Database, ImageUp, Loader2, Upload, UserCheck, X } from "lucide-react";
 import { ApiError, getCardsSummary, listCards, notifyCardsChanged, uploadCard } from "@/lib/api";
 import type { CardsSummary } from "@/lib/api";
 import type { CardSummary } from "@/lib/types";
@@ -144,6 +144,11 @@ export default function CardsApp({ initialFilter }: { initialFilter: Filter }) {
                     <td className="px-6 py-4">
                       {c.status === "processing" ? (
                         <span className="text-slate-400">–</span>
+                      ) : c.status === "approved" && c.flag_count > 0 ? (
+                        <span className="inline-flex items-center gap-1.5 rounded-full bg-brand-50 px-2.5 py-0.5 text-[14px] font-medium text-brand-700">
+                          <UserCheck className="size-4" aria-hidden />
+                          Fixed by supervisor
+                        </span>
                       ) : c.flag_count > 0 ? (
                         <span className="inline-flex items-center gap-1.5 rounded-full bg-signal-bg px-2.5 py-0.5 text-[14px] font-medium text-signal-text">
                           <AlertTriangle className="size-4" aria-hidden />

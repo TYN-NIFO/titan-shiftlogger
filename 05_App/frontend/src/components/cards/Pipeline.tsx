@@ -8,6 +8,7 @@ import type { CardsSummary } from "@/lib/api";
 export default function Pipeline({ s }: { s: CardsSummary | null }) {
   const photo = s?.photo_total ?? 0;
   const auto = s?.photo_auto_approved ?? 0;
+  const fixed = s?.photo_supervisor_approved ?? 0;
   const waiting = s?.needs_review ?? 0;
   const reading = s?.processing ?? 0;
   const pct = photo ? Math.round((100 * auto) / photo) : 0;
@@ -29,7 +30,7 @@ export default function Pipeline({ s }: { s: CardsSummary | null }) {
         <Station icon={<Camera className="size-5" />} title="Scanned" value={s ? String(photo) : "–"} note="photo cards in" />
         <Station icon={<ScanLine className="size-5" />} title="Read by AI" value={s ? String(photo - reading) : "–"} note={reading ? `${reading} reading now` : "every field, as written"} />
         <Station icon={<ShieldCheck className="size-5" />} title="Checked" value="8 rules" note="codes · hours · qty · masters" />
-        <Station icon={<Database className="size-5" />} title="Saved automatically" value={s ? String(auto) : "–"} note={s ? `${pct}% passed every check` : ""} tone="ok" />
+        <Station icon={<Database className="size-5" />} title="Saved automatically" value={s ? String(auto) : "–"} note={s ? (fixed ? `+ ${fixed} fixed by supervisor` : `${pct}% passed every check`) : ""} tone="ok" />
         <Station icon={<UserCheck className="size-5" />} title="Waiting for supervisor" value={s ? String(waiting) : "–"} note="only cards with a doubt" tone="signal" />
       </div>
     </section>

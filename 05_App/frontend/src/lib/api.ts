@@ -76,11 +76,12 @@ export interface CardsSummary {
   processing: number;
   photo_total: number;
   photo_auto_approved: number;
+  photo_supervisor_approved: number;
 }
 
 export function getCardsSummary(): Promise<CardsSummary> {
   if (MOCK)
-    return Promise.resolve({ total: 8161, approved: 8154, needs_review: 4, failed: 0, processing: 0, photo_total: 7, photo_auto_approved: 3 });
+    return Promise.resolve({ total: 8161, approved: 8154, needs_review: 4, failed: 0, processing: 0, photo_total: 7, photo_auto_approved: 3, photo_supervisor_approved: 0 });
   return request<CardsSummary>(`/api/cards/summary`);
 }
 
