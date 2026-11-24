@@ -26,6 +26,9 @@ export default function ContextBar({ state }: { state: string }) {
   const s = STATE[state] ?? STATE.checking;
   return (
     <header className="flex h-14 shrink-0 items-center gap-3 border-b border-line bg-surface/90 px-8 backdrop-blur">
+      {/* eslint-disable-next-line @next/next/no-img-element -- static SVG brand mark */}
+      <img src="/titan-logo.svg" alt="Titan Company" className="h-12 w-12" />
+      <span className="h-6 w-px bg-line-strong" aria-hidden />
       <span className="text-[15px] font-semibold tracking-tight text-ink">Shift Logger</span>
       <Crumb />
       <span className="font-mono text-[13px] text-muted">Watch Division</span>
