@@ -98,7 +98,11 @@ Pre-sales / proposal workspace for The Yellow Network (TYN). The client is Titan
 6. **Bake-off done (18 Nov 2026)** on a shared internal GPU server (one H200 slice, Ollama in Docker; other workloads share it, so check `nvidia-smi` before big runs). Server access details are kept out of the repo. Winner **Qwen3.8 27B Q4**: 99.6% fields, 9/10 perfect, 0 missed reviews, 17 GB GPU, ~15 s/card; Q8 scored the same. GLM-OCR→Qwen made it worse (dropped). Final settings: value lists in prompt (without them 85%), thinking off (same accuracy, 2× slower), output cap 3,072. `score.py` "missed reviews" was fixed to count every auto-saved wrong card (it used to skip clean cards). `agreement.py` = two-reader check (use a different model as checker, e.g. Qwen3-VL 30B-A3B). Full table in PROJECT.md §7.
 7. **PoC app built (19 Nov 2026), `05_App/`**: Next.js frontend (Ask / Cards / Review queue; "shop-floor control room" design: dark rail, Geist + Geist Mono, Titan teal accent, coral for review), FastAPI backend (upload, AI read, validate, review; text-to-SQL chat with sqlglot guard, read-only role, number check), Postgres with 4 months of synthetic cards (80 operators with sample names, 12 machines) and planted demo answers. `CONTRACT.md` is the spec; `05_App/README.md` has the VM run steps; `scripts/reset_demo.py` before every take. No dashboard screen (user: dashboards are not a PoC feature). Live model not yet tested against the chat prompts.
 8. **Demo video** (`05_Demo_Video/Titan_demo_video_script.md`, FINAL section): 1:30, Lathiesh narrates; problem, reading, value, errors, human in the loop, next step. Recorded on the GPU VM.
-9. Next: run the app on the VM with the live model, tune prompts, dry run, record.
+9. **Takes 3–6 recorded on the VM (19 Nov 2026)**. Take 6 was approved by the user, with two changes requested (24 Nov 2026):
+   - slower screens;
+   - the Titan logo on every app screen, plus both logos on the first and last slides.
+
+   The user also switched the voice to an Indian-accent ElevenLabs voice ("Sid"). The take-7 inputs (8 scene clips, logos, change list) are in `05_Demo_Video/take7_audio/` (pushed as 25dd633). The take-7 build happens on the VM. The Titan logo is from Wikipedia (2018 SVG); Amit should approve its use.
 
 ## Git repo
 

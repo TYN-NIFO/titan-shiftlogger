@@ -1,4 +1,12 @@
-# Titan Shift Logger: PoC demo video, 1:30, spoken by Lathiesh (19 Nov 2026) - FINAL
+# Current: take 7 (24 Nov 2026)
+
+Take 7 is about 2:00. It uses an Indian English voice from ElevenLabs, holds the screens longer, and puts the Titan logo on every app screen and both logos on the first and last slides. The narration (8 scenes), the logos and the change list are in `take7_audio/README.md`. It replaces the plan below:
+
+- the text is the take-6 wording, slightly expanded;
+- the "Next step" line has been dropped;
+- the voice is ElevenLabs, not Lathiesh.
+
+# Titan Shift Logger: PoC demo video, 1:30, spoken by Lathiesh (19 Nov 2026) - superseded by take 7
 
 Lathiesh speaks over a screen recording of the real PoC (no mock-ups). About 190 words, about 80 s of speech plus short pauses on screen.
 
